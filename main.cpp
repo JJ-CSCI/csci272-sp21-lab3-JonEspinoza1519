@@ -7,6 +7,38 @@
 // Put the assignment code here
 
 class Quaternion {
+private:
+  double a,b,c,d;
+
+public:
+  Quaternion(double a1, double b1, double c1, double d1){
+    a = a1;
+    b = b1;
+    c = c1;
+    d = d1;
+  }
+
+  bool operator== (const Quaternion& q) const{
+    if (a == q.a && b == q.b && c == q.c && d == q.d)
+      return true;
+    else
+      return false;
+  }
+
+  Quaternion operator+ (const Quaternion& q) const{
+    Quaternion returnMe{a + q.a, b + q.b, c + q.c, d + q.d};
+    return returnMe;
+  }
+
+  Quaternion operator- (const Quaternion& q) const{
+    Quaternion returnMe{a - q.a, b - q.b, c - q.c, d - q.d};
+    return returnMe;
+  }
+
+  Quaternion operator* (const double& multi) const{
+    Quaternion returnMe{a * multi, b * multi, c * multi, d * multi};
+    return returnMe;
+  }
 };
 
 //------------------------------
